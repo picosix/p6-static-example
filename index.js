@@ -8,7 +8,7 @@ const packageJson = require('./package.json');
 // Root
 app.get('/', (req, res) =>
   res.json(
-    _.pick(packageJson, ['name', 'version'])
+    _.pick(packageJson, ['name', 'version', 'description', 'author', 'license'])
   )
 );
 
