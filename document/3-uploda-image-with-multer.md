@@ -134,7 +134,7 @@ Lý do để thêm file `.gitignore` cho thư mục này là vì bạn sẽ khô
 *.gif
 ```
 
-## Sử dụng `dotenv` để lưư config
+## Sử dụng `dotenv` để lưu config
 
 Ở bài đầu tiên mình có giới thiệu với các bạn thư viện `dotenv` để lưu trữ các config, thì ở bài này chúng ta sẽ thực hành ngay và luôn.
 
