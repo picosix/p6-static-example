@@ -11,7 +11,7 @@ Description: updating ...
 0. [Idea](./document/0-idea.md)
 1. [Build API server with ExpressJS](./document/1-build-api-server-with-expressjs.md)
 2. [Project config (gitignore, eslint, prettier, ...)](./document/2.project-config.md)
-3. [Upload image with multer](./document/3-uploda-image-with-multer.md)
+3. [Upload image with multer](./document/3-upload-image-with-multer.md)
 4. Save image information with [lowdb](https://github.com/typicode/lowdb)
 5. Render image with NodeJS Stream [File System](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
 6. Resize and render image with [sharp](https://github.com/lovell/sharp)
