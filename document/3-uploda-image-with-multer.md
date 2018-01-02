@@ -189,7 +189,7 @@ Qua phần hướng dẫn này các bạn đã có thể sử dụng thư viện
 
 Bài tập của các bạn: Sử dụng đường dẫn động để lưư ảnh. Ví dụ ngày hôm nay là 2017-01-02 thì bạn cần lưư đường dẫn là `~/projects/p6-static-example/public/resource/2017/01/08/1514902657873-SuperWoman.jpeg`. Ở bài tập này các bạn có thể dùng lệnh tạo thư mục của [NodeJS mkdir](https://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback) hoặc dùng thư viện [mkdirp](https://github.com/substack/node-mkdirp) hoặc [ShellJS mkdir](https://github.com/shelljs/shelljs#mkdiroptions-dir--dir-)
 
-Result:
+Result: https://github.com/picosix/p6-static-example/tree/ea0a05906d5c3ffc88a6d46b91db0856f7e6f16a
 
 ## Bài kế tiếp
 
