@@ -12,7 +12,7 @@ Description: updating ...
 1. [Build API server with ExpressJS](./document/1-build-api-server-with-expressjs.md)
 2. [Project config (gitignore, eslint, prettier, ...)](./document/2.project-config.md)
 3. [Upload image with multer](./document/3-upload-image-with-multer.md)
-4. [Save image information with lowdb](./document/4-save-image-information-with-lowdb)
+4. [Save image information with lowdb](./document/4-save-image-information-with-lowdb.md)
 5. Render image with NodeJS Stream [File System](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
 6. Resize and render image with [sharp](https://github.com/lovell/sharp)
 7. Embedded watermark with [sharp](https://github.com/lovell/sharp)
