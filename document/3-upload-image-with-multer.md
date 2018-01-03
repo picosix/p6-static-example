@@ -193,4 +193,4 @@ Result: https://github.com/picosix/p6-static-example/tree/ea0a05906d5c3ffc88a6d4
 
 ## Bài kế tiếp
 
-Updating ...
+[Lưu data với LowDB](./4-save-image-information-with-lowdb.md)

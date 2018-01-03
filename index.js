@@ -2,8 +2,16 @@ const express = require('express');
 const _ = require('lodash');
 const path = require('path');
 const multer = require('multer');
+const lowdb = require('lowdb');
+const FileAsync = require('lowdb/adapters/FileAsync');
 
 const app = express();
+const adapter = new FileAsync('db.json');
+const db = (async connection => {
+  const dbConnection = await connection;
+  await dbConnection.defaults({ images: [], users: [] }).write();
+  return dbConnection;
+})(lowdb(adapter));
 
 // Routes
 const packageJson = require('./package.json');
@@ -15,7 +23,7 @@ app.get('/', (req, res) =>
 );
 
 // Upload image
-const allowTypes = process.env.ALLOW_TYPES.split(',').map(type => type.trim);
+const allowTypes = process.env.ALLOW_TYPES.split(',').map(type => type.trim());
 const uploadConfig = {
   fields: process.env.MAX_FIELD || 17,
   files: process.env.MAX_FILE || 17,
@@ -39,9 +47,33 @@ const fileFilter = (req, { mimetype }, cb) =>
   cb(null, Boolean(allowTypes.indexOf(mimetype) > -1));
 const uploader = multer({ storage, fileFilter, limits: uploadConfig });
 
-app.post('/upload', uploader.array('images'), (req, res) =>
-  res.json({ images: req.files })
-);
+app.post('/upload', uploader.array('images'), async ({ files }, res) => {
+  const dbInstance = await db;
+
+  const insertQueue = [];
+  const images = [];
+  _.each(files, ({ filename, path: imagePath, size }) => {
+    // Insert image information to db
+    insertQueue.push(
+      dbInstance
+        .get('images')
+        .push({
+          id: filename,
+          name: filename,
+          path: imagePath,
+          size
+        })
+        .write()
+    );
+    // Prepare data to return to client
+    images.push({
+      name: filename
+    });
+  });
+  await Promise.all(insertQueue);
+
+  res.json({ images });
+});
 
 const port = process.env.PORT || 9999;
 app.listen(port);

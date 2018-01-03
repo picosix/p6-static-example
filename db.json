@@ -1,0 +1,17 @@
+{
+  "images": [
+    {
+      "id": "1514989443560-SuperWoman.jpeg",
+      "name": "1514989443560-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1514989443560-SuperWoman.jpeg",
+      "size": 206319
+    },
+    {
+      "id": "1514989443568-SuperWoman.jpeg",
+      "name": "1514989443568-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1514989443568-SuperWoman.jpeg",
+      "size": 206319
+    }
+  ],
+  "users": []
+}

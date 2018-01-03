@@ -7,12 +7,13 @@
   "author": "TuanNguyen",
   "license": "MIT",
   "scripts": {
-    "start-dev": "node -r dotenv/config ./node_modules/.bin/nodemon index.js"
+    "start-dev": "node -r dotenv/config ./node_modules/.bin/nodemon --ignore db.json index.js"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "lowdb": "^1.0.0",
     "multer": "^1.3.0"
   },
   "devDependencies": {
