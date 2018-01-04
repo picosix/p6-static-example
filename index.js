@@ -5,6 +5,7 @@ const _ = require('lodash');
 const multer = require('multer');
 const lowdb = require('lowdb');
 const FileAsync = require('lowdb/adapters/FileAsync');
+const sharp = require('sharp');
 
 const app = express();
 const adapter = new FileAsync('db.json');
@@ -77,7 +78,7 @@ app.post('/upload', uploader.array('images'), async ({ files }, res) => {
 });
 
 // Serve image
-app.get('/image/:size/:id', async (req, res, next) => {
+app.get('/image/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const imgPath = path.resolve(__dirname, process.env.FOLDER_RESOURCE, id);
@@ -86,7 +87,8 @@ app.get('/image/:size/:id', async (req, res, next) => {
       throw new Error(`Image #${id} is not exist.`);
     }
 
-    const imageStream = fs.createReadStream(imgPath);
+    // const imageStream = fs.createReadStream(imgPath);
+    const imageStream = sharp(imgPath);
     return imageStream.pipe(res);
   } catch (err) {
     return next(err);
