@@ -151,7 +151,7 @@ Kết thúc phần thì các bạn có thể lưu được data vào `json datab
 
 Bài tập của các bạn: Sử dụng một `unique id` thay vì sử dụng `filename` làm id.
 
-Result: https://github.com/picosix/p6-static-example/tree/f54108e467e6473c156ee78d79eb7c1e6e239fd8
+Result: https://github.com/picosix/p6-static-example/tree/5c2c0dd357efd1d07fc1e7a2de0eec99e8d41e19
 
 ## Bài kế tiếp
 
