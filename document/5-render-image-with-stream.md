@@ -123,7 +123,7 @@ Phần render ảnh với `ReadStream` này khá là đơn giản. Nội dung ch
 
 Bài tập của các bạn: Làm quen và sử dụng cơ bản thư viện [sharp](https://github.com/lovell/sharp) để chuẩn bị cho bài học sau.
 
-Result: 
+Result: https://github.com/picosix/p6-static-example/tree/f3236d3369bab74ec1ec0a46d3e97703a743964b
 
 ## Bài kế tiếp
 

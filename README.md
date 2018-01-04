@@ -13,7 +13,7 @@ Description: updating ...
 2. [Project config (gitignore, eslint, prettier, ...)](./document/2.project-config.md)
 3. [Upload image with multer](./document/3-upload-image-with-multer.md)
 4. [Save image information with lowdb](./document/4-save-image-information-with-lowdb.md)
-5. Render image with Stream ([File System](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options) and [sharp](https://github.com/lovell/sharp))
+5. [Render image with Stream](./document/5-render-image-with-stream.md)
 6. Resize image with [sharp](https://github.com/lovell/sharp)
 7. Embedded watermark with [sharp](https://github.com/lovell/sharp)
 8. Write log with [winston](https://github.com/winstonjs/winston)
