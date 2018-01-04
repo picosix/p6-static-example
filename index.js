@@ -1,6 +1,7 @@
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const _ = require('lodash');
-const path = require('path');
 const multer = require('multer');
 const lowdb = require('lowdb');
 const FileAsync = require('lowdb/adapters/FileAsync');
@@ -9,7 +10,7 @@ const app = express();
 const adapter = new FileAsync('db.json');
 const db = (async connection => {
   const dbConnection = await connection;
-  await dbConnection.defaults({ images: [], users: [] }).write();
+  await dbConnection.defaults({ resource: [], users: [] }).write();
   return dbConnection;
 })(lowdb(adapter));
 
@@ -56,7 +57,7 @@ app.post('/upload', uploader.array('images'), async ({ files }, res) => {
     // Insert image information to db
     insertQueue.push(
       dbInstance
-        .get('images')
+        .get('resource')
         .push({
           id: filename,
           name: filename,
@@ -73,6 +74,34 @@ app.post('/upload', uploader.array('images'), async ({ files }, res) => {
   await Promise.all(insertQueue);
 
   res.json({ images });
+});
+
+// Serve image
+app.get('/image/:size/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const imgPath = path.resolve(__dirname, process.env.FOLDER_RESOURCE, id);
+
+    if (!fs.existsSync(imgPath)) {
+      throw new Error(`Image #${id} is not exist.`);
+    }
+
+    const imageStream = fs.createReadStream(imgPath);
+    return imageStream.pipe(res);
+  } catch (err) {
+    return next(err);
+  }
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  const message =
+    process.env.NODE_ENV !== 'production'
+      ? err.message
+      : 'An error encountered while processing images';
+  res.status(500).json({ message });
+
+  return next();
 });
 
 const port = process.env.PORT || 9999;

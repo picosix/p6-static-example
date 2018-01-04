@@ -27,7 +27,7 @@ const FileAsync = require('lowdb/adapters/FileAsync');
 const adapter = new FileAsync('db.json');
 const db = (async connection => {
   const dbConnection = await connection;
-  await dbConnection.defaults({ images: [], users: [] }).write();
+  await dbConnection.defaults({ resource: [], users: [] }).write();
   return dbConnection;
 })(lowdb(adapter));
 
@@ -36,13 +36,13 @@ const db = (async connection => {
 
 Các bạn có thể thấy ở đây mình tạo một `adapter` sử dụng `asynchronous adatapter` để sử dụng promise khi thao tác với database. Bạn có thể sử dụng `synchronous adatapter` với adapter `FileSync` (mình không khuyến khích).
 
-Sau đó mình định nghĩa một `Immediately Invoked Function Expression` (IIFE - Xem thêm về [IIFE](https://developer.mozilla.org/vi/docs/Glossary/IIFE)) vì khi khởi tạo connection xong thì `lowdb` sẽ trả về một promise, mà chúng ta cần khởi tạo file database cùng với một vài giá trị (ở đây là `images` và `users`). Những giá trị này tương đương với collection bên `mognodb` hoặc table bên `SQL`.
+Sau đó mình định nghĩa một `Immediately Invoked Function Expression` (IIFE - Xem thêm về [IIFE](https://developer.mozilla.org/vi/docs/Glossary/IIFE)) vì khi khởi tạo connection xong thì `lowdb` sẽ trả về một promise, mà chúng ta cần khởi tạo file database cùng với một vài giá trị (ở đây là `resource` và `users`). Những giá trị này tương đương với collection bên `mognodb` hoặc table bên `SQL`.
 
 Lúc này sẽ có một file `db.json` sẽ đưọc tạo ra trong project của bạn với nội dung
 
 ```json
 {
-  "images": [],
+  "resource": [],
   "users": []
 }
 ```
@@ -125,7 +125,7 @@ và file `db.json` sẽ có dữ liệu
 
 ```json
 {
-  "images": [
+  "resource": [
     {
       "id": "1514989443560-SuperWoman.jpeg",
       "name": "1514989443560-SuperWoman.jpeg",
@@ -155,4 +155,4 @@ Result: https://github.com/picosix/p6-static-example/tree/f54108e467e6473c156ee7
 
 ## Bài kế tiếp
 
-Updating ...
+[Render ảnh với Stream](./5-render-image-with-stream.md)

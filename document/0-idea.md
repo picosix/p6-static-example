@@ -35,8 +35,8 @@
 2. Project config (gitignore, eslint, prettier, ...)
 3. Upload ảnh với [multer](https://github.com/expressjs/multer)
 4. Lưu data với [lowdb](https://github.com/typicode/lowdb)
-5. Render ảnh với NodeJS Stream [File System](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
-6. Resize và render ảnh với [sharp](https://github.com/lovell/sharp)
+5. Render ảnh với Stream ([File System](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options) và [sharp](https://github.com/lovell/sharp))
+6. Resize ảnh với [sharp](https://github.com/lovell/sharp)
 7. Chèn watermark với [sharp](https://github.com/lovell/sharp)
 8. Ghi log với [winston](https://github.com/winstonjs/winston)
 9. Viết test case
