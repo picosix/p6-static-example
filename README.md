@@ -14,7 +14,7 @@ Description: updating ...
 3. [Upload image with multer](./document/3-upload-image-with-multer.md)
 4. [Save image information with lowdb](./document/4-save-image-information-with-lowdb.md)
 5. [Render image with Stream](./document/5-render-image-with-stream.md)
-6. Resize image with [sharp](https://github.com/lovell/sharp)
+6. [Resize image with sharp](./document/6-resize-image-with-sharp.md)
 7. Embedded watermark with [sharp](https://github.com/lovell/sharp)
 8. Write log with [winston](https://github.com/winstonjs/winston)
 9. Write test case

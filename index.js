@@ -34,7 +34,7 @@ const uploadConfig = {
 };
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, `${path.resolve(__dirname, 'public/resource')}`);
+    cb(null, path.resolve(__dirname, 'public/resource'));
   },
   filename(req, { originalname, mimetype }, cb) {
     const nameSegments = originalname.split('.');
@@ -78,17 +78,56 @@ app.post('/upload', uploader.array('images'), async ({ files }, res) => {
 });
 
 // Serve image
-app.get('/image/:id', async (req, res, next) => {
+const allowSizes = {
+  xs: 0.2,
+  sm: 0.4,
+  md: 0.6,
+  lg: 0.8,
+  full: 1,
+  '70x70': { width: 70, height: 70 }
+};
+const DEFAULT_SIZE = 1;
+app.get('/image/:size/:id', async ({ params }, res, next) => {
   try {
-    const { id } = req.params;
+    const { size, id } = params;
     const imgPath = path.resolve(__dirname, process.env.FOLDER_RESOURCE, id);
+    const imgCachePath = path.resolve(
+      __dirname,
+      'public/cache',
+      `${size}-${id}`
+    );
 
     if (!fs.existsSync(imgPath)) {
       throw new Error(`Image #${id} is not exist.`);
     }
 
-    // const imageStream = fs.createReadStream(imgPath);
+    // Serve cache
+    if (fs.existsSync(imgCachePath)) {
+      return fs.createReadStream(imgCachePath).pipe(res);
+    }
     const imageStream = sharp(imgPath);
+    // Get image data
+    const imageData = await imageStream.metadata();
+
+    const requestSize = allowSizes[size] ? allowSizes[size] : DEFAULT_SIZE;
+
+    // Resize with percent
+    if (_.isNumber(requestSize)) {
+      imageStream.resize(
+        imageData.width * requestSize,
+        imageData.height * requestSize
+      );
+    }
+    // resize with absolute size
+    if (_.isObject(requestSize)) {
+      imageStream.resize(requestSize.width, requestSize.height);
+    }
+
+    imageStream
+      .clone()
+      .toFile(imgCachePath)
+      .catch(console.log);
+
     return imageStream.pipe(res);
   } catch (err) {
     return next(err);

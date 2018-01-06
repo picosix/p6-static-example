@@ -127,4 +127,4 @@ Result: https://github.com/picosix/p6-static-example/tree/f3236d3369bab74ec1ec0a
 
 ## Bài kế tiếp
 
-Updating ...
+[Resize ảnh với sharp](./6-resize-image-with-sharp.md)
