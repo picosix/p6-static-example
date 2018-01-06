@@ -15,7 +15,7 @@ Description: updating ...
 4. [Save image information with lowdb](./document/4-save-image-information-with-lowdb.md)
 5. [Render image with Stream](./document/5-render-image-with-stream.md)
 6. [Resize image with sharp](./document/6-resize-image-with-sharp.md)
-7. Embedded watermark with [sharp](https://github.com/lovell/sharp)
+7. [Embedded watermark with sharp](./document/7-embedded-watermark-with-sharp.md)
 8. Write log with [winston](https://github.com/winstonjs/winston)
 9. Write test case
 10. Dockerized your app

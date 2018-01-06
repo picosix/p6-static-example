@@ -174,4 +174,4 @@ Result: https://github.com/picosix/p6-static-example/tree/aa541a56cc006f79c54b2f
 
 ## Bài kế tiếp
 
-Updating ...
+[Chèn watermark với sharp](./7-embedded-watermark-with-sharp.md)

@@ -110,18 +110,39 @@ app.get('/image/:size/:id', async ({ params }, res, next) => {
     const imageData = await imageStream.metadata();
 
     const requestSize = allowSizes[size] ? allowSizes[size] : DEFAULT_SIZE;
+    let imgWidth;
+    let imgHeight;
 
     // Resize with percent
     if (_.isNumber(requestSize)) {
-      imageStream.resize(
-        imageData.width * requestSize,
-        imageData.height * requestSize
-      );
+      imgWidth = imageData.width * requestSize;
+      imgHeight = imageData.height * requestSize;
     }
     // resize with absolute size
     if (_.isObject(requestSize)) {
-      imageStream.resize(requestSize.width, requestSize.height);
+      imgWidth = requestSize.width;
+      imgHeight = requestSize.height;
     }
+
+    if (imgWidth && imgHeight) {
+      imageStream.resize(imgWidth, imgHeight);
+    }
+
+    // Embedded watermark
+    const watermark = sharp(
+      path.resolve(__dirname, 'public/static', 'logo.png')
+    );
+    const watermarkData = await watermark.metadata();
+    if (imgWidth && imgHeight) {
+      watermark.resize(
+        watermarkData.width * imgWidth / imageData.width,
+        watermarkData.height * imgHeight / imageData.height
+      );
+    }
+
+    imageStream.overlayWith(await watermark.toBuffer(), {
+      gravity: 'southwest'
+    });
 
     imageStream
       .clone()
