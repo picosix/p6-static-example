@@ -124,7 +124,7 @@ Nếu các bạn muốn mình viết về phần này thì có thể tạo một
 
 https://github.com/picosix/p6-static-example/issues/new
 
-Result: 
+Result: https://github.com/picosix/p6-static-example/tree/a4938b1560124194959ce4b6fe5fe447adab999c
 
 ## Bài kế tiếp
 
