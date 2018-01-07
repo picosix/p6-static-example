@@ -141,7 +141,7 @@ logger.error("127.0.0.1 - there's no place like home");
 
 Nếu như thư viện có sẵn không đủ để bạn sử dụng, bạn có thể tự tạo một logger theo ý mình dựa theo hướng dẫn ở đây [Custom logger](https://github.com/winstonjs/winston#adding-custom-transports)
 
-Result:
+Result: https://github.com/picosix/p6-static-example/tree/b8517ae3a7c98be4d37c870b754f90c3c2bc7756
 
 ## Bài kế tiếp
 
