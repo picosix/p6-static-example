@@ -6,14 +6,33 @@ const multer = require('multer');
 const lowdb = require('lowdb');
 const FileAsync = require('lowdb/adapters/FileAsync');
 const sharp = require('sharp');
+const winston = require('winston');
 
 const app = express();
+
 const adapter = new FileAsync('db.json');
 const db = (async connection => {
   const dbConnection = await connection;
   await dbConnection.defaults({ resource: [], users: [] }).write();
   return dbConnection;
 })(lowdb(adapter));
+
+const { createLogger, format, transports } = winston;
+const logger = createLogger({
+  level: 'info',
+  format: format.json(),
+  transports: [
+    new transports.File({ filename: 'log/error.log', level: 'error' }),
+    new transports.File({ filename: 'log/combined.log' })
+  ]
+});
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(
+    new transports.Console({
+      format: format.simple()
+    })
+  );
+}
 
 // Routes
 const packageJson = require('./package.json');
@@ -147,7 +166,9 @@ app.get('/image/:size/:id', async ({ params }, res, next) => {
     imageStream
       .clone()
       .toFile(imgCachePath)
-      .catch(console.log);
+      .catch(({ message, code, stack }) =>
+        logger.error(message, { code, stack })
+      );
 
     return imageStream.pipe(res);
   } catch (err) {
@@ -157,6 +178,7 @@ app.get('/image/:size/:id', async ({ params }, res, next) => {
 
 // Error handler
 app.use((err, req, res, next) => {
+  logger.error(err.message, { code: err.code, stack: err.stack });
   const message =
     process.env.NODE_ENV !== 'production'
       ? err.message

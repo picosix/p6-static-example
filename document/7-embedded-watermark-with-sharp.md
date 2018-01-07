@@ -128,4 +128,4 @@ Result: https://github.com/picosix/p6-static-example/tree/a4938b1560124194959ce4
 
 ## Bài kế tiếp
 
-Updating ...
+[Ghi log với winston](./8-write-log-with-winston.md)

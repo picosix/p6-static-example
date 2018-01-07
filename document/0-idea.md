@@ -42,6 +42,7 @@
 9. Viết test case
 10. Sử dụng docker
 11. Tái cấu trúc code
+12. Deploy project lên VPS (Digital Ocean)
 
 ### Note
 
