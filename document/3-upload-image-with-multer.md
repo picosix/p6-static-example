@@ -49,7 +49,7 @@ const uploadConfig = {
 };
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, `${path.resolve(__dirname, '..', 'resource')}`);
+    cb(null, `${path.resolve(__dirname, '..', 'public/resource')}`);
   },
   filename(req, { originalname, mimetype }, cb) {
     const nameSegments = originalname.split('.');
