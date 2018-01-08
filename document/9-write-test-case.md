@@ -316,7 +316,7 @@ Chính vì thế, mình nhắc lại lời khuyên một lần nữa. Hãy viế
 
 Các bạn nên luôn nhớ một điều `Mọi sai lầm luôn phải trả giá`. Và nếu hôm nay bạn không có gắng hạn chế các sai lầm, thì có thể ngày mai bạn sẽ trả giá rất rất nhiều.
 
-Result:
+Result: https://github.com/picosix/p6-static-example/tree/3eac416b5f7961dc23ae29d410adf23a23d6976f
 
 ## Bài kế tiếp
 
