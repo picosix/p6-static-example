@@ -1,4 +1,4 @@
-Project này là một tutorial giúp các bạn xây dựng một server ảnh - trả về tấm ảnh với đúng kích thước mà bạn muộn. Những hướng dẫn này được thực hiện trong quá trình mình xây dựng sản phẩm [picosix/p6-static](https://github.com/picosix/p6-static), với các bước được đơn giản hoá để các bạn có thể dễ dàng tiếp cận.
+Project này là một tutorial giúp các bạn xây dựng một server ảnh - trả về tấm ảnh với đúng kích thước mà bạn muốn. Những hướng dẫn này được thực hiện trong quá trình mình xây dựng sản phẩm [picosix/p6-static](https://github.com/picosix/p6-static), với các bước được đơn giản hoá để các bạn có thể dễ dàng tiếp cận.
 
 Các bạn có thể 
 
