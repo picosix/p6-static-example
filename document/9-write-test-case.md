@@ -6,7 +6,7 @@
 
 Với bản thân mình, mỗi ứng dụng mà mình viết ra, mình luôn luôn cố gắng để có thẻ viết nhiều test case hết sực có thể. Và phong cách viết code yêu thích của mình là ngồi viết test case trước, rồi mới viết code để thực thi cái test case mà mình viết. Tuy nhiên thực tế phũ phàng lắm :( deadline mà dí thì thời gian đâu mà viết test case.
 
-Vì để tạo cảm hứng học tập, nên mình quyết định đặt phần test case ở gần cuối của series. Mifnh chỉ muốn khuyên các bạn nên viết test case để cover hết tất cả các trường hợp mà bạn viết code. Cho dù bạn làm project một mình, hay bạn làm cùng team thì test case cũng sẽ giúp bạn
+Vì để tạo cảm hứng học tập, nên mình quyết định đặt phần test case ở gần cuối của series. Mình chỉ muốn khuyên các bạn nên viết test case để cover hết tất cả các trường hợp mà bạn viết code. Cho dù bạn làm project một mình, hay bạn làm cùng team thì test case cũng sẽ giúp bạn
 
 * Kiểm tra ứng dụng của bạn một cách tự động
 * Đảm bảo production của bạn luôn không xảy ra những bug cũ
@@ -315,6 +315,8 @@ Nói về tầm quan trọng của test case, theo mình thấy, tất cả các
 Chính vì thế, mình nhắc lại lời khuyên một lần nữa. Hãy viết tất cả các test case bạn có thể viết, từ unit test, đến interaction test, ...
 
 Các bạn nên luôn nhớ một điều `Mọi sai lầm luôn phải trả giá`. Và nếu hôm nay bạn không có gắng hạn chế các sai lầm, thì có thể ngày mai bạn sẽ trả giá rất rất nhiều.
+
+Bài tập của các bạn: Viết test case cho truờng hợp render ảnh với các kích thước khác
 
 Result: https://github.com/picosix/p6-static-example/tree/3eac416b5f7961dc23ae29d410adf23a23d6976f
 
