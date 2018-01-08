@@ -14,5 +14,36 @@
     }
   ],
   "users": [],
-  "resource": []
+  "resource": [
+    {
+      "id": "1515422112127-SuperWoman.jpeg",
+      "name": "1515422112127-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1515422112127-SuperWoman.jpeg",
+      "size": 206319
+    },
+    {
+      "id": "1515422526700-SuperWoman.jpeg",
+      "name": "1515422526700-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1515422526700-SuperWoman.jpeg",
+      "size": 206319
+    },
+    {
+      "id": "1515422526956-SuperWoman.jpeg",
+      "name": "1515422526956-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1515422526956-SuperWoman.jpeg",
+      "size": 206319
+    },
+    {
+      "id": "1515422559617-SuperWoman.jpeg",
+      "name": "1515422559617-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1515422559617-SuperWoman.jpeg",
+      "size": 206319
+    },
+    {
+      "id": "1515422559870-SuperWoman.jpeg",
+      "name": "1515422559870-SuperWoman.jpeg",
+      "path": "/home/picosix/projects/p6-static-example/public/resource/1515422559870-SuperWoman.jpeg",
+      "size": 206319
+    }
+  ]
 }

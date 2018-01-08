@@ -7,7 +7,10 @@
   "author": "TuanNguyen",
   "license": "MIT",
   "scripts": {
-    "start-dev": "node -r dotenv/config ./node_modules/.bin/nodemon --ignore db.json index.js"
+    "start-dev": "node -r dotenv/config ./node_modules/.bin/nodemon --ignore db.json bin/www.js",
+    "linter": "./node_modules/.bin/eslint",
+    "pretest": "yarn linter src",
+    "test": "node -r dotenv/config ./node_modules/.bin/mocha --exit --recursive"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -19,12 +22,16 @@
     "winston": "^3.0.0-rc1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "eslint": "^4.14.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.4.0",
+    "mocha": "^4.1.0",
     "nodemon": "^1.14.6",
-    "prettier": "^1.9.2"
+    "prettier": "^1.9.2",
+    "shelljs": "^0.7.8"
   }
 }

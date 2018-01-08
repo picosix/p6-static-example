@@ -145,4 +145,4 @@ Result: https://github.com/picosix/p6-static-example/tree/b8517ae3a7c98be4d37c87
 
 ## Bài kế tiếp
 
-Updating ...
+[Viết test case](./9-write-test-case.md)

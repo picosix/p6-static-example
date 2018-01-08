@@ -188,5 +188,4 @@ app.use((err, req, res, next) => {
   return next();
 });
 
-const port = process.env.PORT || 9999;
-app.listen(port);
+module.exports = app;
