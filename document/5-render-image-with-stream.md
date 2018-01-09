@@ -113,7 +113,7 @@ app.get('/image/:id', async (req, res, next) => {
 
 Sau khi truy cập vào địa chỉ `http://localhost:9999/image/:id` (ví dụ `http://localhost:9999/image/1514989443560-SuperWoman.jpeg`) bạn sẽ thấy hình ảnh được render trên trình duyệt.
 
-## Kết thúc
+## Kết luận
 
 Phần render ảnh với `ReadStream` này khá là đơn giản. Nội dung chính của phần này chỉ gồm 3 phần
 
@@ -123,7 +123,7 @@ Phần render ảnh với `ReadStream` này khá là đơn giản. Nội dung ch
 
 Bài tập của các bạn: Làm quen và sử dụng cơ bản thư viện [sharp](https://github.com/lovell/sharp) để chuẩn bị cho bài học sau.
 
-Result: https://github.com/picosix/p6-static-example/tree/f3236d3369bab74ec1ec0a46d3e97703a743964b
+[Source Code](https://github.com/picosix/p6-static-example/tree/f3236d3369bab74ec1ec0a46d3e97703a743964b)
 
 ## Bài kế tiếp
 

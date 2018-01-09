@@ -240,11 +240,11 @@ Nếu đây là lần đầu bạn có ý định push code lên github thì b�
 
 Mình không đi sâu vào phần git vì có khá nhiều hướng dẫn bạn có thể tìm được. Ví dụ series [Git cơ bản](https://thachpham.com/series/git-co-ban) của anh "Thach Pham".
 
-## Kết thúc
+## Kết luận
 
 Về cơ bản bạn đã setup xong một project API server với NodeJS và ExpressJS của bạn. Tuy nhiên chúng ta còn cần vài cài đặt để project có thể chạy mượt mà. Bạn có thể đợi mình giới thiệu ở bài kế hoặc tìm hiểu trước về `eslint`, `pretier`.
 
-Result: https://github.com/picosix/p6-static-example/tree/28cfad7fd2a42d0bd369fb9598cadb5e424dc19c
+[Source Code](https://github.com/picosix/p6-static-example/tree/28cfad7fd2a42d0bd369fb9598cadb5e424dc19c)
 
 ## Bài kế tiếp
 

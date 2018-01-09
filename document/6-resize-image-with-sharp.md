@@ -166,11 +166,11 @@ app.get('/image/:size/:id', async ({ params }, res, next) => {
 
 Chúng ta cần clone instance của `sharp` ra để ghi vào một file cache để lần request sau, chúng ta check xem file cache nếu đã tồn tại rồi thì dùng `fs.createReadStream` để trả về ảnh. Hẳn các bạn còn nhớ hàm này mình đã hướng dẫn ở bài [Render ảnh với Stream](./5-render-image-with-stream.md).
 
-## Kết thúc
+## Kết luận
 
 Về cơ bản thì bài hôm nay cũng chẳng có gì khó khăn cả. Điểm cần chú ý của bài này là cách mà chúng ta sử dụng api `resize` và `toFile` của `sharp` để resize và ghi cache file ảnh. Ngoài ra, `sharp` còn hỗ trợ chúng ta chèn ảnh (mình sẽ hướng dẫn ở bài sau), xoay ảnh, chỉnh sửa màu, ... bạn có thể tham khảo tại đây [sharp document](http://sharp.dimens.io/en/stable/)
 
-Result: https://github.com/picosix/p6-static-example/tree/aa541a56cc006f79c54b2f88c7c78de27f370daa
+[Source Code](https://github.com/picosix/p6-static-example/tree/aa541a56cc006f79c54b2f88c7c78de27f370daa)
 
 ## Bài kế tiếp
 

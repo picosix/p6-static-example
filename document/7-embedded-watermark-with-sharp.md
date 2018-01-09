@@ -111,7 +111,7 @@ Các bạn có thể đọc thêm
 
 Bây giờ bạn có thể truy cập vào endpoint `/image/:size/:id` để thấy ảnh của bạn đã có watermark (ví dụ `http://localhost:9999/image/xs/1514989443568-SuperWoman.jpeg`). Lỡ mà bạn "xui xui" không thấy tấm ảnh thì cũng đừng lo :D Bạn có nhớ vụ cache file ở bài trước không? Xoá hết file cache đi rồi bạn sẽ thấy điều "ma thuật" :)
 
-## Kết thúc
+## Kết luận
 
 Ở phần này mình chỉ hướng dẫn các bạn phần đơn giản nhất. Bạn có logo, bạn chèn nó vào ảnh của bạn vào vị trí bạn muốn. Xong. Còn về việc bạn muốn logo trong suốt (đọc ở đây [Colour manipulation](http://sharp.dimens.io/en/stable/api-colour/#background)), một số kiểu render khác (xem ở đây [Api Operation](http://sharp.dimens.io/en/stable/api-operation/)), tìm hiểu các dạng output thay vì chỉ là buffer (xem ở đây [Api Output](http://sharp.dimens.io/en/stable/api-output/)), ... thì bạn có thể tự xem và tự làm theo các link mình cung cấp ở trên
 
@@ -124,7 +124,7 @@ Nếu các bạn muốn mình viết về phần này thì có thể tạo một
 
 https://github.com/picosix/p6-static-example/issues/new
 
-Result: https://github.com/picosix/p6-static-example/tree/a4938b1560124194959ce4b6fe5fe447adab999c
+[Source Code](https://github.com/picosix/p6-static-example/tree/a4938b1560124194959ce4b6fe5fe447adab999c)
 
 ## Bài kế tiếp
 

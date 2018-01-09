@@ -180,13 +180,13 @@ curl -F "images=@./test/SuperWoman.jpg" -F "images=@./test/SuperWoman.jpg" http:
 
 Enjoy!!!
 
-## Kết thúc
+## Kết luận
 
 Qua phần hướng dẫn này các bạn đã có thể sử dụng thư viện `multer` để upload file với các config mà mình thường dùng. Ngoài ra các bạn cũng có thể thay đổi code để phù hợp hơn với project của các bạn như: đổi format tên file, đường dẫn `resource` động theo ngày tháng hiện tại của server
 
 Bài tập của các bạn: Sử dụng đường dẫn động để lưư ảnh. Ví dụ ngày hôm nay là 2017-01-02 thì bạn cần lưư đường dẫn là `~/projects/p6-static-example/public/resource/2017/01/08/1514902657873-SuperWoman.jpeg`. Ở bài tập này các bạn có thể dùng lệnh tạo thư mục của [NodeJS mkdir](https://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback) hoặc dùng thư viện [mkdirp](https://github.com/substack/node-mkdirp) hoặc [ShellJS mkdir](https://github.com/shelljs/shelljs#mkdiroptions-dir--dir-)
 
-Result: https://github.com/picosix/p6-static-example/tree/e1bd06c728e7f5c1359e2d2d829b0b8c35197846
+[Source Code](https://github.com/picosix/p6-static-example/tree/e1bd06c728e7f5c1359e2d2d829b0b8c35197846)
 
 ## Bài kế tiếp
 
