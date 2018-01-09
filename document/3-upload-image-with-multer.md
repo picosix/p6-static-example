@@ -31,7 +31,6 @@ $ mkdir -p public/resource
 2. Bạn tạo một `api endpoint` để xử lý việc upload ảnh bằng express. Thêm đoạn sau vào file `index.js` của bạn
 
 ```javascript
-
 ...
 
 const path = require('path')
@@ -49,7 +48,7 @@ const uploadConfig = {
 };
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, `${path.resolve(__dirname, '..', 'public/resource')}`);
+    cb(null, `${path.resolve(__dirname, 'public/resource')}`);
   },
   filename(req, { originalname, mimetype }, cb) {
     const nameSegments = originalname.split('.');
@@ -74,7 +73,7 @@ trong đó
 * Function `destination` trong `storage` sẽ trả về đường dẫn TUYỆT ĐỐI đến thư mục mà bạn muốn ảnh đưọc upload đến (ở đây là thư mục `public/resource` mà bạn đã tạo ở trên)
 * Function `filename` trong `storage` sẽ trả về file name mà bạn muốn lưu lại. Ở đây mình có thực hiện một số biến đổi để tên file trả về theo dạng `[timetamp]-[name].[ext]`. Bạn có thể đổi lại theo ý thích của bạn, miễn là đảm bảo tên các file chắc chắn không trùng với nhau
 * `fileFilter` sẽ trả về `true` nếu bạn cho phép upload file với `mimetype` của file đó (ở đây là ảnh, và các file được upload mình ở biến `allowTypes`) và trả về `false` nếu bạn không cho upload
-* Riêng phần `uploadConfig` bạn có thể coi tại cại đây [Multer limits config](https://github.com/expressjs/multer#limits). Bạn cần chú ý là `fileSize` là file size với đơn vị là byte, nên ở đây mình muốn cho upload ảnh với kích thước 100 Mb thì mình phải nhân với 1024 * 1024 để ra đơn vị mà megabytes.
+* Riêng phần `uploadConfig` bạn có thể coi tại cại đây [Multer limits config](https://github.com/expressjs/multer#limits). Bạn cần chú ý là `fileSize` là file size với đơn vị là byte, nên ở đây mình muốn cho upload ảnh với kích thước 100 Mb thì mình phải nhân với 1024 \* 1024 để ra đơn vị mà megabytes.
 * `uploader.array` nghĩa là bạn muốn cho phép người dùng upload nhiều file, với tên field là `images`
 * Về endpoind `/upload` thì khá dễ. Chúng ta có 2 midleware ở đây, đầu tiên là multer để upload file, sau đó là midleware sẽ xử lý những phần tiếp theo như trả kết quả cho client, lưu thôn tin ảnh vào database. Ở midleware thứ 2 thì `req.files` là biến sẽ chứa thông tin của tất cả file đã được upload thành công.
 
@@ -159,7 +158,6 @@ MAX_PART=17
 và rồi sửa lại file `index.js` sử dụng các biến môi trường như sau
 
 ```javascript
-
 ...
 
 
@@ -172,10 +170,9 @@ const uploadConfig = {
 };
 
 ...
-
 ```
 
-Bạn cần khởi động lại server vì biến môi trường đưọc load trước `nodemon` nên bạn thay đổi file `.env` server sẽ không tự reload được. Sau đó chúng ta nên test lại bằng câu lệnh 
+Bạn cần khởi động lại server vì biến môi trường đưọc load trước `nodemon` nên bạn thay đổi file `.env` server sẽ không tự reload được. Sau đó chúng ta nên test lại bằng câu lệnh
 
 ```shell
 curl -F "images=@./test/SuperWoman.jpg" -F "images=@./test/SuperWoman.jpg" http://localhost:9999/upload
