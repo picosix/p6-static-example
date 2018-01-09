@@ -17,6 +17,6 @@ Các bạn có thể
 7. [Chèn watermark với sharp](./document/7-embedded-watermark-with-sharp.md)
 8. [Ghi log với winston](./document/8-write-log-with-winston.md)
 9. [Viết test case](./document/9-write-test-case.md)
-10. [Sử dụng docker](10-dockerized-your-app.md)
+10. [Sử dụng docker](./document/10-dockerized-your-app.md)
 11. Tái cấu trúc code
 12. Deploy project lên VPS (Digital Ocean)
