@@ -371,15 +371,15 @@ server {
       deny all;
     }
 
-    location ~ ^/image/(.*)$ {
+    location ~ ^/image/([a-zA-Z0-9\-\_]+)/([a-zA-Z0-9\-\_\.]+)$ {
       sendfile            on;
       sendfile_max_chunk  1m;
       tcp_nopush          on;
       tcp_nodelay         on;
       keepalive_timeout   65;
 
-      if (-f $document_root/cache/$1) {
-        rewrite ^/image/(.*)$ /cache/$1 break;
+      if (-f $document_root/cache/$1-$2) {
+        rewrite /image/([a-zA-Z0-9\-\_]+)/([a-zA-Z0-9\-\_\.]+)$ /cache/$1-$2 break;
       }
 
       try_files $uri @nodeapp;
@@ -456,50 +456,11 @@ các bạn có chú ý là mình có tham số `--link p6-static-node:p6_static_
 
 Bây giờ bạn có thể test thử bằng các vào endpoint `/image/:size/:id` (ví dụ `http://static.picosix.local/image/full/1515422559870-SuperWoman.jpeg`). Nếu mọi thứ đều ổn thì các bạn sẽ thấy tấm ảnh cùng với logo của bạn.
 
-### Fix bug
-
-Thế là xong rồi nhỉ? Các bạn nên dành ra ít nhất là 10p để xem xét tất cả các bước trên xem có sai ở đâu không?
-
----
-
-Các bạn có để ý trong nginx config của mình có đoạn rewrite rule như sau
-
-```nginx
-if (-f $document_root/cache/$1) {
-  rewrite ^/image/(.*)$ /cache/$1 break;
-}
-```
-
-điều này có nghĩa là với đường dẫn `/image/full/1515422559870-SuperWoman.jpeg` thì nginx sẽ cố gắng tìm tấm ảnh có đường dẫn `public/cache/image/full/1515422559870-SuperWoman.jpeg`. Trong khí đó chúng ta sẽ ghi file cache như sau `public/cache/image/full-1515422559870-SuperWoman.jpeg`. Thế thì làm sao mà nginx tìm được???
-
-Để chắc chắn là mình đúng, các bạn thử ngay sửa lại endpoint `/image/:size/:id` như sau
-
-```javascript
-...
-
-app.get('/image/:size/:id', async ({ params }, res, next) => {
-  return res.json(params);
-  try {
-...
-```
-
-có phải là bạn sẽ thấy kết quả như sau
-
-```json
-{ "size": "full", "id": "1515422559870-SuperWoman.jpeg" }
-```
-
-thay vì tấm ảnh của bạn? Vậy là sai rồi!!! Vì chúng ta đã ghi file cache thì file cache đó phải được render bằng `nginx` chứ không phải bằng `node`
-
-Bài tập của các bạn: Sửa lại ứng dụng sao cho file cache được ghi lại theo dạng `/public/cache/${size}/${id}` thay vì `/public/cache/${size}-${id}`. Sau khi sửa xong thì bạn vào lại endpoint `/image/:size/:id` (ví dụ `http://static.picosix.local/image/full/1515422559870-SuperWoman.jpeg`) sẽ thấy hình ảnh của bạn đuợc render thay vì đoạn json như ở trên. Sau khi test xong thì các bạn phải gỡ bỏ đoạn `return res.json(params);`.
-
 ## Kết luận
 
 Bài này khá nặng về phần server, với một số bạn sẽ có thể không quen. Nhưng với vai trò là một lập trình viên (mình muốn trở thành `backend developer`), để có thể tạo ra một ứng dụng tốt, thì phần server là một phần không thể thiếu. Thử tưởng tượng bạn làm việc trong một `startup`, bạn phải vừa thiết kế database, xây dựng backend, vừa phải phải đảm bảo deploy đúng hạn bản production thì bạn sẽ hiểu được tầm quan trọng của những kiến thức về server (linux) :D
 
 Với docker, mọi việc đã được đơn giản hoá khá nhiều. Vậy thì tại sao bạn lại không bỏ một ít thời gian để học cách giúp sản phẩm của bạn tốt hơn?
-
-Ở bài này, mình không trực tiếp giải quyết một bug trong ứng dụng (bài tập mà mình đã đưa ra ở trên) là để các bạn có thể tự tìm hiểu. Nếu các bạn "bí" ở đâu thì có thể tạo issue, mỗi tối mình điều check cả. Hoặc dành cho các bạn muốn biết đáp án thì có thể tham khảo project [p6-static](https://github.com/picosix/p6-static/)
 
 [Source Code]()
 
