@@ -466,4 +466,4 @@ Với docker, mọi việc đã được đơn giản hoá khá nhiều. Vậy t
 
 ## Bài kế tiếp
 
-Updating ...
+[Tái cấu trúc code](./11-refactor-code-structure.md)
