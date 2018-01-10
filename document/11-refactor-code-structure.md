@@ -40,7 +40,7 @@ Các bạn có thể tham khảo source code sau khi được refactor tại đ�
 
 Để test thì các bạn có thể làm theo hướng dẫn của phần `Quick start for dev`. Cũng chỉ là khởi chạy các docker container mà thôi.
 
-[Source Code]()
+[Source Code](https://github.com/picosix/p6-static-example/tree/f68ddade5355e734ddc582f8cdd06936a2234484)
 
 ## Bài kế tiếp
 
