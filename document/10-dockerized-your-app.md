@@ -129,8 +129,9 @@ $ docker run [option] DOCKER_IMAGE [command] [...args]
 * `-p` map port từ bên ngoài vào trong container thông qua cú pháp `__OUTSITE_PORT__:__INSITE_PORT__`
 * `-v` map volume (thường là thư mục) từ bên ngoài vào bên trong container thông qua cú pháp `__OUTSITE_VOLUME__:__INSITE_VOLUME__`
 * `-e` set các `environment variables` cho container, với NodeJS thì các biến này sẽ được gắn vào `process.env`
-  ### Chạy `node` container
 * `--link` link từ một container với một container với format `__CONTAINER_NAME__:__ANOTHER_NAME__`, Lúc này bên trong container chúng ta có thể dùng thế này `http://__ANOTHER_NAME__:PORT` để truy cập đến container với port được chỉ định
+
+### Chạy `node` container
 
 Bạn cần chạy câu lệnh sau
 
@@ -169,133 +170,6 @@ Bạn cần phải thêm dòng này vào file `/etc/hosts` của bạn
 ```
 
 sau đó bạn có thể vào đường dẫn `http://static.picosix.local/` để kiểm tra kết quả
-
-## Chạy `nginx` container
-
-Các bạn cần tạo một file `docker/nginx/default.conf` để làm nơi chứa các config (rewrite rule, proxy, ...) của nginx dùng để render các file cache
-
-```nginx
-# If we receive X-Forwarded-Proto, pass it through; otherwise, pass along the
-# scheme used to connect to this server
-map $http_x_forwarded_proto $proxy_x_forwarded_proto {
-  default $http_x_forwarded_proto;
-  ''      $scheme;
-}
-# If we receive X-Forwarded-Port, pass it through; otherwise, pass along the
-# server port the client connected to
-map $http_x_forwarded_port $proxy_x_forwarded_port {
-  default $http_x_forwarded_port;
-  ''      $server_port;
-}
-# If we receive Upgrade, set Connection to "upgrade"; otherwise, delete any
-# Connection header that may have been passed to this server
-map $http_upgrade $proxy_connection {
-  default upgrade;
-  '' close;
-}
-# Apply fix for very long server names
-server_names_hash_bucket_size 128;
-# Default dhparam
-ssl_dhparam /etc/nginx/dhparam/dhparam.pem;
-# Set appropriate X-Forwarded-Ssl header
-map $scheme $proxy_x_forwarded_ssl {
-  default off;
-  https on;
-}
-gzip_types text/plain text/css application/javascript application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-log_format vhost '$host $remote_addr - $remote_user [$time_local] '
-                 '"$request" $status $body_bytes_sent '
-                 '"$http_referer" "$http_user_agent"';
-access_log off;
-resolver 8.8.8.8 8.8.4.4;
-# HTTP 1.1 support
-proxy_http_version 1.1;
-proxy_buffering off;
-proxy_set_header Host $http_host;
-proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection $proxy_connection;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-proxy_set_header X-Forwarded-Proto $proxy_x_forwarded_proto;
-proxy_set_header X-Forwarded-Ssl $proxy_x_forwarded_ssl;
-proxy_set_header X-Forwarded-Port $proxy_x_forwarded_port;
-# Mitigate httpoxy attack (see README for details)
-proxy_set_header Proxy "";
-
-client_body_buffer_size 128m;
-client_max_body_size 128m;
-
-server {
-    listen       80;
-    server_name  localhost;
-    root      /app/public;
-
-    #charset koi8-r;
-    access_log  /var/log/nginx/access.log vhost;
-    error_log  /var/log/nginx/error.log warn;
-
-    # Deny access to resource
-    location ~ /(resource) {
-      deny all;
-    }
-
-    # Deny access to .gitignore file
-    location ~ /. {
-      deny all;
-    }
-
-    location ~ ^/image/(.*)$ {
-      sendfile            on;
-      sendfile_max_chunk  1m;
-      tcp_nopush          on;
-      tcp_nodelay         on;
-      keepalive_timeout   65;
-
-      if (-f $document_root/cache/$1) {
-        rewrite ^/image/(.*)$ /cache/$1 break;
-      }
-
-      try_files $uri @nodeapp;
-    }
-
-    location / {
-      try_files $uri @nodeapp;
-    }
-
-    location @nodeapp {
-      proxy_pass http://p6_static_node:9999;
-    }
-
-    # error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-      root   /usr/share/nginx/html;
-    }
-}
-```
-
-các bạn chỉ cần quan tâm đoạn này
-
-```nginx
- location ~ ^/image/(.*)$ {
-      sendfile            on;
-      sendfile_max_chunk  1m;
-      tcp_nopush          on;
-      tcp_nodelay         on;
-      keepalive_timeout   65;
-
-      if (-f $document_root/cache/$1) {
-        rewrite ^/image/(.*)$ /cache/$1 break;
-      }
-
-      try_files $uri @nodeapp;
-    }
-```
-
-Bạn còn nhớ endpoint `/image/:size/:id`? Ỏ đây mình sẽ config để nginx thử tìm các file trong thư mục `public/cache`, nếu tìm được thì chúng ta sẽ render file ảnh đó ngay, còn nếu không thì chúng ta sẽ thử dùng proxy `@nodeapp` để point tới app nodejs của chúng ta
 
 ## Chạy `nginx` container
 
