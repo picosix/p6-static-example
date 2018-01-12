@@ -228,8 +228,9 @@ Bạn nhớ trả lại những dòng mà bạn đã sửa về như cũ - show 
 Nếu đây là lần đầu bạn có ý định push code lên github thì bạn cần
 
 1. Tạo project mới trên github
-2. Thêm remote respo `$ git remote add origin git@github.com:picosix/p6-static-example.git`. Bạn nên thay `git@github.com:picosix/p6-static-example.git` bằng đường dẫn đến project của bạn. Với đường dẫn bắt đầu bằng `git` thì bạn cần có ssh key để push code. Bạn có thể đọc ở đây [Connecting to github with ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
-3. Config name và email cho git project
+2. Tạo git project `$ git init`
+3. Thêm remote respo `$ git remote add origin git@github.com:picosix/p6-static-example.git`. Bạn nên thay `git@github.com:picosix/p6-static-example.git` bằng đường dẫn đến project của bạn. Với đường dẫn bắt đầu bằng `git` thì bạn cần có ssh key để push code. Bạn có thể đọc ở đây [Connecting to github with ssh](https://help.github.com/articles/connecting-to-github-with-ssh/)
+4. Config name và email cho git project
 
 * `$ git config user.name 'picosix'` thay `picosix` bằng tên của ban
 * `$ git config user.email 'picosix.com@gmail.com` thay `picosix.com@gmail.com` bằng email của bạn
