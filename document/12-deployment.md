@@ -4,6 +4,16 @@
 
 [Tái cấu trúc code](./11-refactor-code-structure.md)
 
+## Mua VPS
+
+Các bạn có thể chọn nhà cung cấp VPS mà bạn thích, riêng mình thì chọn DigitalOcean cho mục đích viết các bài hướng dẫn vì
+
+* Setup nhanh
+* Admin panel đơn giản và dễ sử dụng với người mới
+* Có nhiều hướng dẫn
+
+Nếu các bạn quyết định chọn DigitalOcean giống mình thích cần chú ý là có thể hiện tại DigitalOcean đã ban thẻ Visa Vietcomnak (có thể là các loại thẻ và các ngân hàng khác). Cho nên các bạn nên mua thông qua Paypal để đảm bảo giao dịch thành công
+
 ## Tạo tài khoản và VPS
 
 Đầu tiên bạn cần tạo một tài khoản của DigitalOcean. Bạn có thể dùng một trong hai link sau
