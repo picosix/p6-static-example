@@ -44,4 +44,4 @@ Các bạn có thể tham khảo source code sau khi được refactor tại đ�
 
 ## Bài kế tiếp
 
-Updating ...
+[Deploy project lên VPS (Digital Ocean)](./12-deployment.md)
