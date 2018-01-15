@@ -150,6 +150,8 @@ Thế giờ chúng ta làm sao để test khi mà mình chỉ viết api? Bạn 
 
 Lưu ý: Vì giới hạn của server, bạn chỉ nên upload ảnh với kích thước **FULL HD** (1920px/1200px) trở xuống
 
+![DEMO](./static/demo.png)
+
 ## Kết luận
 
 Vậy là mình đã hướng dẫn xong các bạn phần deploy code lên VPS. Bài này cũng sẽ là bài kết thúc series hướng dẫn đầu tiên mình viết bằng tiếng Việt. Một số vấn đề còn tồn đọng lại cần các bạn hoàn thiện
