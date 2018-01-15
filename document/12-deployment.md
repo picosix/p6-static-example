@@ -130,7 +130,7 @@ Vấn đề quan trọng tiếp theo của các bạn là trên VPS của các b
 * Chạy `nginx-proxy`: `# docker run -d --restart always --name nginx-proxy -p 80:80 -p 443:443 -v $(pwd)/certs:/etc/nginx/certs -v /var/run/docker.sock:/tmp/docker.sock:ro picosix/nginx-proxy`
 * Cài đặt các module của project `# docker run --rm -v $(pwd):/app picosix/node yarn install`
 * Copy file `.env` # cp .env.example .env`và chỉnh lại các config mà bạn muốn`# nano .env`. Sau khi chỉnh sửa xong thì các bạn`Ctrl + o`và`enter`để lưu lại file,`Ctrl + x` để thoát
-* Chạy `node` app `# docker run -d -e SERVICE_HOST=static.picosix.p6app -e DB_DATABASE=picosix --restart always --name p6-static-node -v $(pwd):/app --link mongo:mongo picosix/node yarn start-dev`
+* Chạy `node` app `# docker run -d -e SERVICE_HOST=static.picosix.p6app -e DB_DATABASE=picosix --restart always --name p6-static-node -v $(pwd):/app --link mongo:mongo picosix/node yarn start`
 * Chạy `nginx`: `# docker run -d -e VIRTUAL_HOST=static.picosix.p6app --restart always --name p6-static-nginx -v $(pwd)/docker/nginx:/etc/nginx/conf.d/ -v $(pwd):/app --link p6-static-node:p6_static_node picosix/nginx`
 
 Ở đây chỉ để demo nên mình dùng domain ảo khi khởi tạo `nginx` container (`VIRTUAL_HOST=static.picosix.p6app`). Để có thể sử dụng được domain ảo này, các bạn cần thêm dòng sau vào file `/etc/hosts`
@@ -155,7 +155,6 @@ Lưu ý: Vì giới hạn của server, bạn chỉ nên upload ảnh với kíc
 Vậy là mình đã hướng dẫn xong các bạn phần deploy code lên VPS. Bài này cũng sẽ là bài kết thúc series hướng dẫn đầu tiên mình viết bằng tiếng Việt. Một số vấn đề còn tồn đọng lại cần các bạn hoàn thiện
 
 * Giới hạn một sô thông số khi upload ảnh (kích thước, loại file khác nhau, ...)
-* Sử dụng bản production. Các bạn có chú ý là mình vẫn sử dụng `nodemon` để deploy code? Các bạn nên sử dụng [pm2](https://github.com/Unitech/pm2) cho bản production của mình
 * Viết thêm một số API như liệt kê tất cả các file ảnh đã được upload, xoá một số file cache, tạo cache cho một file, ...
 * Phân quyền trên API
 
