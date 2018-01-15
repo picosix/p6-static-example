@@ -1,3 +1,5 @@
+![PicoSix](./document/static/logo.png)
+
 # p6-static-example
 
 [DEMO](http://static.picosix.p6app/demo/index.html)
