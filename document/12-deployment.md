@@ -146,7 +146,7 @@ vở **YOUR_IP** là ip VPS của bạn. Sau đó các bạn có thể vào doma
 Thế giờ chúng ta làm sao để test khi mà mình chỉ viết api? Bạn có hai lựa chọn
 
 * Tự viết một client đơn giản bằng HTML để test function upload
-* Dùng demo mình viết sẵn để test [DEMO](http://static.picosix.p6app/demo/index.html). Demo này có sẵn trong project [p6-static](https://github.com/picosix/p6-static), cho nên các bạn có thể tự test trên VPS của mình bằng đường link `http://__YOUR_DOMAIN__/demo/index.html`
+* Dùng demo mình viết sẵn để test [DEMO](http://static.picosix.info/demo/index.html). Demo này có sẵn trong project [p6-static](https://github.com/picosix/p6-static), cho nên các bạn có thể tự test trên VPS của mình bằng đường link `http://__YOUR_DOMAIN__/demo/index.html`
 
 Lưu ý: Vì giới hạn của server, bạn chỉ nên upload ảnh với kích thước **FULL HD** (1920px/1200px) trở xuống
 
