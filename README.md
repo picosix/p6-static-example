@@ -2,7 +2,7 @@
 
 # p6-static-example
 
-[DEMO](http://static.picosix.p6app/demo/index.html)
+[DEMO](http://static.picosix.info/demo/index.html)
 
 Lưu ý: Vì giới hạn của server, bạn chỉ nên upload ảnh với kích thước **FULL HD** (1920px/1200px) trở xuống
 
