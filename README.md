@@ -2,9 +2,7 @@
 
 # p6-static-example
 
-[DEMO](http://static.picosix.info/demo/index.html)
-
-Lưu ý: Vì giới hạn của server, bạn chỉ nên upload ảnh với kích thước **FULL HD** (1920px/1200px) trở xuống
+[DEMO](http://static-client.picosix.info/)
 
 Project này là một tutorial giúp các bạn xây dựng một server ảnh - trả về tấm ảnh với đúng kích thước mà bạn muốn. Những hướng dẫn này được thực hiện trong quá trình mình xây dựng sản phẩm [picosix/p6-static](https://github.com/picosix/p6-static), với các bước được đơn giản hoá để các bạn có thể dễ dàng tiếp cận.
 
