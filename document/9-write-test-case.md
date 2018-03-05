@@ -322,4 +322,4 @@ Bài tập của các bạn: Viết test case cho truờng hợp render ảnh v�
 
 ## Bài kế tiếp
 
-[Sử dụng docker](10-dockerized-your-app.md)
+[Sử dụng docker](./10-dockerized-your-app.md)
