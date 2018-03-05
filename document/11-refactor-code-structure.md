@@ -2,7 +2,7 @@
 
 ## Bài trước đó
 
-[Sử dụng docker](10-dockerized-your-app.md)
+[Sử dụng docker](./10-dockerized-your-app.md)
 
 Như vậy là phần ứng dụng chính của chúng ta sau 10 bài đã hoàn thành. Trong quá trình làm, để đơn giản hoá việc tổ chức code, cũng như giúp các bạn dễ theo dõi, mình chỉ sử dụng một file `index.js` duy nhất. Trên thực tế thì chúng ta nên tách ứng dụng ra làm hai phần
 
